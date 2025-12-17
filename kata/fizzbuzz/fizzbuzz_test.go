@@ -8,9 +8,18 @@ import (
 
 func TestFizzBuzzReturnsCorrectString(t *testing.T) {
 	inputInt := 10
-	outputStr := "10"
+	expectedOutput := "10"
 
 	res := FizzBuzz(inputInt)
 
-	assert.Equal(t, outputStr, res)
+	assert.Equal(t, expectedOutput, res)
+}
+
+func TestFizzBuzzMultipleOf3ReturnsFizz(t *testing.T) {
+	inputInt := 6
+	expectedOutput := "Fizz"
+
+	res := FizzBuzz(inputInt)
+
+	assert.Equal(t, expectedOutput, res)
 }
