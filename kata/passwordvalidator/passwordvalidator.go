@@ -2,6 +2,7 @@ package passwordvalidator
 
 import (
 	"strings"
+	"unicode"
 )
 
 func PasswordValidator(input string) []string {
@@ -23,5 +24,18 @@ func PasswordValidator(input string) []string {
 		errors = append(errors, "The password must contain at least 2 numbers")
 	}
 
+	if !HasUpper(input) {
+		errors = append(errors, "The password must contain at least one capital letter")
+	}
+
 	return errors
+}
+
+func HasUpper(input string) bool {
+	for _, r := range input {
+		if unicode.IsUpper(r) && unicode.IsLetter(r) {
+			return true
+		}
+	}
+	return false
 }

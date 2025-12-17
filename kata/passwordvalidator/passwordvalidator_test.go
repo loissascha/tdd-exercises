@@ -26,3 +26,23 @@ func TestPasswordMultiErrors(t *testing.T) {
 	assert.Contains(t, errors, "Password must be at least 8 characters")
 	assert.Contains(t, errors, "The password must contain at least 2 numbers")
 }
+
+func TestPasswordNeedsOneUpper(t *testing.T) {
+	errors := PasswordValidator("noupper")
+
+	assert.Contains(t, errors, "The password must contain at least one capital letter")
+}
+
+func TestHasUpperValid(t *testing.T) {
+	b1 := HasUpper("stRing")
+	b2 := HasUpper("String")
+	b3 := HasUpper("string")
+	b4 := HasUpper("string$")
+	b5 := HasUpper("string5")
+
+	assert.True(t, b1)
+	assert.True(t, b2)
+	assert.False(t, b3)
+	assert.False(t, b4)
+	assert.False(t, b5)
+}
