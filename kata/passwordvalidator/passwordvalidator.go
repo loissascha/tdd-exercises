@@ -1,14 +1,15 @@
 package passwordvalidator
 
 import (
-	"fmt"
 	"strings"
 )
 
-func PasswordValidator(input string) error {
+func PasswordValidator(input string) []string {
+
+	errors := []string{}
 
 	if len(input) < 8 {
-		return fmt.Errorf("Password must be at least 8 characters")
+		errors = append(errors, "Password must be at least 8 characters")
 	}
 
 	nums := []string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
@@ -19,8 +20,8 @@ func PasswordValidator(input string) error {
 	}
 
 	if countNums < 2 {
-		return fmt.Errorf("The password must contain at least 2 numbers")
+		errors = append(errors, "The password must contain at least 2 numbers")
 	}
 
-	return nil
+	return errors
 }

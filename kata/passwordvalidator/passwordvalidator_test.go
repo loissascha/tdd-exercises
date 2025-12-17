@@ -7,17 +7,22 @@ import (
 )
 
 func TestPasswordMinLen8(t *testing.T) {
-	err := PasswordValidator("")
+	errors := PasswordValidator("")
 
-	assert.NotNil(t, err)
-	assert.Equal(t, "Password must be at least 8 characters", err.Error())
+	assert.Contains(t, errors, "Password must be at least 8 characters")
 }
 
 func TestPasswordMustContain2Numbers(t *testing.T) {
 	err := PasswordValidator("TestPassword1")
 	noErr := PasswordValidator("TestPassword12")
 
-	assert.Nil(t, noErr)
-	assert.NotNil(t, err)
-	assert.Equal(t, "The password must contain at least 2 numbers", err.Error())
+	assert.Empty(t, noErr)
+	assert.Contains(t, err, "The password must contain at least 2 numbers")
+}
+
+func TestPasswordMultiErrors(t *testing.T) {
+	errors := PasswordValidator("value")
+
+	assert.Contains(t, errors, "Password must be at least 8 characters")
+	assert.Contains(t, errors, "The password must contain at least 2 numbers")
 }
