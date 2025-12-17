@@ -7,8 +7,8 @@ import (
 )
 
 func TestFizzBuzzReturnsCorrectString(t *testing.T) {
-	inputInt := 10
-	expectedOutput := "10"
+	inputInt := 1
+	expectedOutput := "1"
 
 	res := FizzBuzz(inputInt)
 
@@ -18,6 +18,15 @@ func TestFizzBuzzReturnsCorrectString(t *testing.T) {
 func TestFizzBuzzMultipleOf3ReturnsFizz(t *testing.T) {
 	inputInt := 6
 	expectedOutput := "Fizz"
+
+	res := FizzBuzz(inputInt)
+
+	assert.Equal(t, expectedOutput, res)
+}
+
+func TestFizzBuzzMultipleOf5ReturnsBuzz(t *testing.T) {
+	inputInt := 20
+	expectedOutput := "Buzz"
 
 	res := FizzBuzz(inputInt)
 
