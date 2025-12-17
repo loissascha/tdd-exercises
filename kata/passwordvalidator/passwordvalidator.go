@@ -28,7 +28,20 @@ func PasswordValidator(input string) []string {
 		errors = append(errors, "The password must contain at least one capital letter")
 	}
 
+	if !HasSpecialCharacter(input) {
+		errors = append(errors, "The password must contain at least one special character")
+	}
+
 	return errors
+}
+
+func HasSpecialCharacter(input string) bool {
+	for _, r := range input {
+		if !unicode.IsLetter(r) && !unicode.IsNumber(r) {
+			return true
+		}
+	}
+	return false
 }
 
 func HasUpper(input string) bool {
