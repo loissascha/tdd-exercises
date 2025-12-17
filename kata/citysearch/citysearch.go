@@ -12,7 +12,7 @@ func Search(input string) []string {
 	}
 
 	for _, c := range cities {
-		if strings.Contains(c, input) {
+		if strings.Contains(strings.ToLower(c), strings.ToLower(input)) {
 			results = append(results, c)
 		}
 	}

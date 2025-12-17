@@ -18,3 +18,10 @@ func TestSearchVa(t *testing.T) {
 	assert.Contains(t, res, "Valencia")
 	assert.Contains(t, res, "Vancouver")
 }
+
+func TestSearchva(t *testing.T) {
+	res := Search("va")
+
+	assert.Contains(t, res, "Valencia")
+	assert.Contains(t, res, "Vancouver")
+}
