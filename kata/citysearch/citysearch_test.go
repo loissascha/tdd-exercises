@@ -25,3 +25,15 @@ func TestSearchva(t *testing.T) {
 	assert.Contains(t, res, "Valencia")
 	assert.Contains(t, res, "Vancouver")
 }
+
+func TestSearchape(t *testing.T) {
+	res := Search("ape")
+
+	assert.Contains(t, res, "Budapest")
+}
+
+func TestSearchAsterisk(t *testing.T) {
+	res := Search("*")
+
+	assert.Equal(t, cities, res)
+}
