@@ -20,3 +20,8 @@ func TestStringCalculatorWith2Inputs(t *testing.T) {
 	res := StringCalculator("1,2")
 	assert.Equal(t, 3, res)
 }
+
+func TestStringCalcualtorWithMultipleInputs(t *testing.T) {
+	res := StringCalculator("1,2,3,4,5")
+	assert.Equal(t, 15, res)
+}
