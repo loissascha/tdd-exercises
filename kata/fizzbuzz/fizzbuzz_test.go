@@ -32,3 +32,12 @@ func TestFizzBuzzMultipleOf5ReturnsBuzz(t *testing.T) {
 
 	assert.Equal(t, expectedOutput, res)
 }
+
+func TestFizzBuzzMultiplesOf3And5ReturnsFizzBuzz(t *testing.T) {
+	inputInt := 30
+	expectedOutput := "FizzBuzz"
+
+	res := FizzBuzz(inputInt)
+
+	assert.Equal(t, expectedOutput, res)
+}
