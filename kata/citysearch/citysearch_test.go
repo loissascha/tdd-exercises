@@ -11,3 +11,10 @@ func TestSearchTooShort(t *testing.T) {
 
 	assert.Empty(t, res)
 }
+
+func TestSearchVa(t *testing.T) {
+	res := Search("Va")
+
+	assert.Contains(t, res, "Valencia")
+	assert.Contains(t, res, "Vancouver")
+}
